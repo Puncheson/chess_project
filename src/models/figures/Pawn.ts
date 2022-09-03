@@ -22,10 +22,11 @@ export class Pawn extends Figure {
         const firstStepDirection = this.cell.figure?.color === Colors.BLACK ? 2: -2
 
         if((target.y === this.cell.y + direction || this.isFirstStep
-            && (target.y === this.cell.y + firstStepDirection))
+            && (target.y === this.cell.y + (this.cell.board.getCell(this.cell.x, this.cell.y + direction).isEmpty() ? firstStepDirection : direction )))
             && target.x === this.cell.x && this.cell.board.getCell(target.x, target.y).isEmpty()) {
                 return true
             }
+
         if(target.y === this.cell.y + direction && (target.x === this.cell.x + 1 || target.x=== this.cell.x -1)
         && this.cell.isEnemy(target)) {
             return true
