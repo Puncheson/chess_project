@@ -44,7 +44,8 @@ function updateBoard() {
 }
 
     return (
-       <div>
+   <div>
+   <span>test</span>
        <h3>Текущий игрок {currentPlayer?.color}</h3>
         <div className='board'>
             {board.cells.map((row, index) => 
